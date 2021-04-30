@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Mikhailov Alexander">
+    <meta name="description" content="1st calc on js">
+    <meta name="Copyright" content="MAA-87">
+    <meta name="Address" content="Ptz, Russia">
+
+    <meta name="robots" content="nofollow, noimageindex">
+    <meta name="robots" content="index">
+    <title>калькулятор на js</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/mathjs/lib/browser/math.js"></script>
+
+</head>
+<style>
+    body{
+  
+background: linear-gradient(18deg, rgba(1,6,0,1) 0%, rgba(37,43,36,1) 46%, rgba(0,0,0,1) 100%);
+background-repeat:round;
+}
+    *{
+        font-family: 'Audiowide', cursive;
+    }
+.calc{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: 100px repeat(5,100px);
+   
+    margin: 2% 40% 20% 10%;
+    border: 4pt outset gray;
+
+    background: rgb(94,94,94);
+    background: linear-gradient(90deg, rgba(5,66,5,1) 61%, rgba(7,70,5,1) 100%);
+
+    }
+#ekran{
+
+    grid-column-start: 1;
+    grid-column-end: 5 ;
+display: inline-flex;
+font-size: 50pt;
+
+padding: 5pt;
+
+background: linear-gradient(90deg, rgba(94,94,94,1) 0%, rgba(9,121,88,1) 7%, rgba(84,163,59,1) 100%);    
+justify-content: flex-end;
+align-content: center;
+color: rgb(187, 184, 156);
+text-shadow: 1pt 1pt 2pt black;
+
+
+}
+button{
+    border: 1pt inset #339652;
+    border-radius: 5pt;
+
+
+
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(15,31,20,1) 100%);
+color: lightgoldenrodyellow;
+font-size: 30pt;
+
+}
+.operator{
+color: lightsalmon;
+}
+.operator:hover{
+    color: lightgoldenrodyellow;
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(149,69,69,1) 85%);
+}
+.number:hover{
+    color: khaki;
+
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(51,150,82,1) 100%);
+}
+.total{
+    color: greenyellow;
+    grid-area: 4/4/7/5;
+}
+.total:hover{
+    color: lightgoldenrodyellow;
+    
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(42,255,103,1) 85%);
+}
+button:hover{
+    margin: 2%;
+    font-size: 33pt;
+    text-shadow: 1pt 1pt 1pt rgb(122, 117, 117);
+    border: 1pt outset rgb(1, 7, 1);
+}
+.ac{
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(105,28,28,1) 100%);
+}
+.ac:hover{
+    background: linear-gradient(180deg, rgba(255,0,0,1) 0%, rgba(105,28,28,1) 100%);
+}
+p{
+    font-size: 55pt;
+    color: lightgoldenrodyellow;
+margin: 0;
+padding: 0;
+float: right;
+}
+</style>
+<body>
+    <p></p>
+<div class="calc">
+    <output type="text" id="ekran"></output>
+
+
+    <button class="operator" value="+" >+</button>
+    <button class="operator" value="/" >/</button>
+    <button class="operator" value="*" >*</button>
+    <button class="operator" value="-" >-</button>
+
+
+  
+    <button class="number" value="7" >7</button>
+    <button class="number" value="8" >8</button>
+    <button class="number" value="9" >9</button>
+    <button class="ac" value=" " >AC</button>
+
+
+    <button class="number" value="4" >4</button>
+    <button class="number" value="5" >5</button>
+    <button class="number" value="6" >6</button>
+
+
+    <button class="number" value="1" >1</button>
+    <button class="number" value="2" >2</button>
+    <button class="number" value="3" >3</button>
+
+        
+    <button class="number" value="0" >0</button>
+    <button class="number" value="." >.</button>
+    <button class="minus" value="" >±</button>
+
+    <button class="total" value="=" >=</button>
+   
+    </div>
+
+
+
+    <script>
+      
+
+
+        let text = string = '';
+        let button=document.querySelectorAll('.number');
+        let operator=document.querySelectorAll('.operator');
+        let total = document.querySelectorAll('.total');
+        let output=document.querySelector('output');
+        let ac=document.querySelectorAll('.ac');
+        let minus=document.querySelectorAll('.minus');
+    let a =string;
+    let b =string;
+        let oper = string;
+ let duo=document.querySelector('p');
+
+
+     
+
+button.forEach(button => {
+button.addEventListener('click', function () {
+        a = output.innerText+=this.value;
+       let b = output.innerText;
+});
+    
+operator.forEach(operator => {
+operator.addEventListener('click', function () {
+         oper = this.value;
+       
+
+         b += output.innerText;
+        
+        output.innerText='';
+    });
+
+}); 
+
+minus.forEach( minus => {
+    minus.addEventListener('click', function () {
+        output.innerText= - +output.innerText});
+    });
+
+
+    ac.forEach( ac => {
+    ac.addEventListener('click', function () {
+        duo.innerText='';
+        output.innerText=''});
+    });
+total.forEach( total => {
+    total.addEventListener('click', function () {
+        duo.innerText=(+b +oper+ +a+ '='); 
+        output.innerText='';
+
+
+        let str =(+b +oper +a);
+
+     
+        let r = math.evaluate(str);
+         let l=r.toString();
+   
+
+if(l.length > 13) l = l.substring(0,13);
+
+
+
+        output.innerText = l;
+        duo.innerText+=l;
+setTimeout(() => {
+     duo.innerText='' ;
+     output.innerText='';
+     a='';
+     b='';
+    
+}, 2000);
+
+    
+ }); 
+   
+
+});
+
+
+});  
+
+
+
+
+                   
+
+
+
+
+        </script>
+
+</body>
+
+</html>
