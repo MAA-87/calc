@@ -31,11 +31,12 @@
 
     .calc {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 100px repeat(5, 100px);
+        grid-template-columns: repeat(4, minmax(100px, 1fr));
+        grid-template-rows: 100px repeat(5, minmax(100px, 1fr));
 
         margin: 2% 40% 20% 10%;
-        border: 4pt outset gray;
+        border: 8pt outset gray;
+        
 
         background: rgb(94, 94, 94);
         background: linear-gradient(90deg, rgba(5, 66, 5, 1) 61%, rgba(7, 70, 5, 1) 100%);
@@ -54,7 +55,7 @@
         justify-content: flex-end;
         align-content: center;
         color: rgb(187, 184, 156);
-        text-shadow: 1pt 1pt 2pt black;
+        text-shadow: -1pt 1pt 2pt black;
 
 
     }
