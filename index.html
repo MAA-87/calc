@@ -12,34 +12,42 @@
 
     <meta name="robots" content="nofollow, noimageindex">
     <meta name="robots" content="index">
-    <title>калькулятор на js</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <title>Простой калькулятор на .js</title>
+    
     <script src="https://unpkg.com/mathjs/lib/browser/math.js"></script>
+    
 
 </head>
 <style>
-    body {
-
-        background: linear-gradient(18deg, rgba(1, 6, 0, 1) 0%, rgba(37, 43, 36, 1) 46%, rgba(0, 0, 0, 1) 100%);
-        background-repeat: round;
+    @font-face {
+        font-family: DM;
+        src: url(/fonts/KIdDOS-Regular.ttf);
+    } 
+    @font-face {
+        font-family: D7;
+        src: url(/fonts/digital-7.ttf);
     }
+   body{
+border: none;
+background-color: #ffffff;
+   }
 
     * {
-        font-family: 'Audiowide', cursive;
+        font-family: D7;
     }
 
     .calc {
         display: grid;
-        grid-template-columns: repeat(4, minmax(100px, 1fr));
-        grid-template-rows: 100px repeat(5, minmax(100px, 1fr));
+        grid-template-columns: repeat(4, minmax(80px, 300px));
+        grid-template-rows: 120px repeat(5, 100px);
+        margin: 0% 40% 0 1%;
+        row-gap: 10pt;
+        column-gap: 10pt;
+        border: none;
 
-        margin: 2% 40% 20% 10%;
-        border: 8pt outset gray;
+
         
 
-        background: rgb(94, 94, 94);
-        background: linear-gradient(90deg, rgba(5, 66, 5, 1) 61%, rgba(7, 70, 5, 1) 100%);
 
     }
 
@@ -48,78 +56,53 @@
         grid-column-start: 1;
         grid-column-end: 5;
         display: flex;
-        font-size: 50pt;
-        padding: 5pt;
-
-        background: linear-gradient(90deg, rgba(94, 94, 94, 1) 0%, rgba(9, 121, 88, 1) 7%, rgba(84, 163, 59, 1) 100%);
+        font-size: 80pt;
         justify-content: flex-end;
         align-content: center;
-        color: rgb(187, 184, 156);
-        text-shadow: -1pt 1pt 2pt black;
-
-
+        text-shadow: 2pt -1pt 1pt  rgb(207, 238, 195);
     }
 
-    button {
-        border: 1pt inset #339652;
-        border-radius: 5pt;
-
-
-
-        background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(15, 31, 20, 1) 100%);
-        color: lightgoldenrodyellow;
-        font-size: 30pt;
-
-    }
-
-    .operator {
-        color: lightsalmon;
-    }
-
-    .operator:hover {
-        color: lightgoldenrodyellow;
-        background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(149, 69, 69, 1) 85%);
-    }
-
-    .number:hover {
-        color: khaki;
-
-        background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(51, 150, 82, 1) 100%);
-    }
+    .ac  {
+    color: darkred;}
 
     .total {
-        color: greenyellow;
-        grid-area: 4/4/7/5;
+grid-area: 4/4/7/5;
+}
+
+    button {  
+        border: none;
+        padding: none;
+        font-size: 30pt;
+
+        border-radius: 3px;
+background: linear-gradient(315deg, #e6e6e6, #ffffff);
+box-shadow:  -6px -6px 12px #f5f5f5,
+             6px 6px 12px #ffffff;
     }
-
-    .total:hover {
-        color: lightgoldenrodyellow;
-
-        background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(42, 255, 103, 1) 85%);
-    }
-
     button:hover {
-        margin: 2%;
-        font-size: 33pt;
+        border-radius: 3px;
+background: linear-gradient(45deg, #ffffff, #e6e6e6);
+box-shadow:  6px -6px 12px #f5f5f5,
+             -6px 6px 12px #ffffff;
+
+
+        /* border-radius: 3px;
+background: linear-gradient(45deg, #e6e6e6, #ffffff);
+box-shadow:  6px -6px 12px #f5f5f5,
+             -6px 6px 12px #ffffff; */
+        font-size: 34pt;
         text-shadow: 1pt 1pt 1pt rgb(122, 117, 117);
-        border: 1pt outset rgb(1, 7, 1);
-    }
-
-    .ac {
-        background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(105, 28, 28, 1) 100%);
-    }
-
-    .ac:hover {
-        background: linear-gradient(180deg, rgba(255, 0, 0, 1) 0%, rgba(105, 28, 28, 1) 100%);
     }
 
     p {
-        font-size: 35pt;
+    
         color: rgb(104, 104, 75);
         text-shadow: 0 1pt 1pt 1pt yellow;
         margin: 0;
         padding: 0;
         float: right;
+        font: 2em DM;
+        padding-top: 40%;
     }
 </style>
 
@@ -147,11 +130,7 @@
         <button class="number" value=".">.</button>
         <button class="minus" value="">±</button>
         <button class="total" value="=">=</button>
-
     </div>
-
-
-
     <script>
         let text = string = '';
         let button = document.querySelectorAll('.number');
@@ -171,8 +150,11 @@
         button.forEach(button => {
             button.addEventListener('click', function () {
                 a = output.innerText += this.value;
+         
                 let b = output.innerText;
             });
+           
+     
             operator.forEach(operator => {
                 operator.addEventListener('click', function () {
                     oper = this.value;
@@ -197,8 +179,12 @@
                     output.innerText = '';
                     let str = (+b + oper + a);
                     let r = math.evaluate(str);
+if (r==NaN) {output.innerText='∞'
+    
+};
+
                     let l = r.toString();
-                    if (l.length > 10) l = l.substring(0, 10);
+                    if (l.length > 8) l = l.substring(0, 8);
                     output.innerText = l;
                     duo.innerText += l;
                     setTimeout(() => {
@@ -206,7 +192,7 @@
                         output.innerText = '';
                         a = '';
                         b = '';
-                    }, 2000);
+                    }, 5000);
                 });
             });
         });
