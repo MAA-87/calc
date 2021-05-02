@@ -46,9 +46,8 @@
 
         grid-column-start: 1;
         grid-column-end: 5;
-        display: inline-flex;
+        display: flex;
         font-size: 50pt;
-
         padding: 5pt;
 
         background: linear-gradient(90deg, rgba(94, 94, 94, 1) 0%, rgba(9, 121, 88, 1) 7%, rgba(84, 163, 59, 1) 100%);
@@ -198,7 +197,7 @@
                     let str = (+b + oper + a);
                     let r = math.evaluate(str);
                     let l = r.toString();
-                    if (l.length > 13) l = l.substring(0, 13);
+                    if (l.length > 10) l = l.substring(0, 10);
                     output.innerText = l;
                     duo.innerText += l;
                     setTimeout(() => {
