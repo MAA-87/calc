@@ -33,7 +33,7 @@
    
     body {
 min-width: 300px;
-max-width: 1500px;
+max-width: 700px;
         background: rgb(37, 43, 36);
         background-repeat: round;
     }
@@ -166,9 +166,7 @@ max-width: 1500px;
 
 
     <p></p>
-    <ul class="ul">
 
-    </ul>
 </div>
 
     <script>
@@ -182,10 +180,9 @@ max-width: 1500px;
         let ac = document.querySelectorAll('.ac');
         let minus = document.querySelectorAll('.minus');
         let duo = document.querySelector('p');
-        let lis = document.querySelector('.ul');
-        console.log(lis);
-       let li = document.createElement('li');
-       lis;
+
+
+
       
         let a = string;
         let b = string;
@@ -224,7 +221,7 @@ max-width: 1500px;
                     }       
                     output.innerText=l;
                         duo.innerText = '√‎'  +a +'=' +l;
-                        li.innerText = duo.innerText;
+                
                         b=a;        
                     setTimeout(() => {
                         duo.innerText = '';
@@ -279,7 +276,7 @@ max-width: 1500px;
                     duo.innerText = +l;
       
 }
-                li.innerText = duo.innerText;
+       
                    
                     //Автоудаление значений
                     setTimeout(() =>    {
@@ -297,12 +294,9 @@ max-width: 1500px;
         });
         
         });
-        lis.appendChild(li);
-        
-
-                   
 
         
+
     </script>
 
 </body>
