@@ -13,14 +13,27 @@
     <meta name="robots" content="nofollow, noimageindex">
     <meta name="robots" content="index">
     <title>калькулятор на js</title>
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/mathjs/lib/browser/math.js"></script>
+    <link rel="shortcut icon" href="/iconfinder_calculator-math-tool-school_2824440.ico" type="image/x-icon">
+
 
 </head>
 <style>
+        @font-face {
+        font-family: k1; 
+        src: url(/ka1.ttf); 
+       }
+       @font-face {
+        font-family: d7; 
+        src: url(/d7.ttf);
+       }
+   
     body {
-
+min-width: 300px;
+max-width: 700px;
         background: rgb(37, 43, 36);
         background-repeat: round;
     }
@@ -33,30 +46,26 @@
         display: grid;
         grid-template-columns: repeat(4, minmax(1em, 1fr));
         grid-template-rows: 100px repeat(5, minmax(5em, 1fr));
-
-        
         border: none;
-
-        
-
         background: rgb(94, 94, 94);
-        background: linear-gradient(90deg, rgba(5, 66, 5, 1) 61%, rgba(7, 70, 5, 1) 100%);
-
-    }
+        column-gap: 0.5pt;
+        row-gap: 0.5pt;
+            }
 
     #ekran {
 
         grid-column-start: 1;
         grid-column-end: 5;
         display: flex;
-        font-size: 50pt;
-        padding: 5pt;
-
-        background: linear-gradient(90deg, rgba(94, 94, 94, 1) 0%, rgba(9, 121, 88, 1) 7%, rgba(84, 163, 59, 1) 100%);
+        padding: 0;
+        background: linear-gradient(90deg, rgb(170, 170, 170) 0%, rgba(176, 201, 193, 0.8) 70%, rgba(84, 163, 59, 0.9) 600%);
         justify-content: flex-end;
-        align-content: center;
+        align-items: center;
+        font-family: d7;
+        font-size: 5em;
         color: rgb(187, 184, 156);
         text-shadow: -1pt 1pt 2pt black;
+
 
 
     }
@@ -87,7 +96,7 @@
 
     .total {
         color: greenyellow;
-        grid-area: 4/4/7/5;
+        grid-area: 5/4/7/5;
     }
 
     .total:hover {
@@ -98,7 +107,7 @@
 
     button:hover {
         margin: 2%;
-        font-size: 33pt;
+        font-size: 25pt;
         text-shadow: 1pt 1pt 1pt rgb(122, 117, 117);
         border: 1pt outset rgb(1, 7, 1);
     }
@@ -112,7 +121,7 @@
     }
 
     p {
-        font-size: 35pt;
+        font-size: 10pt;
         color: rgb(104, 104, 75);
         text-shadow: 0 1pt 1pt 1pt yellow;
         margin: 0;
@@ -122,22 +131,29 @@
 </style>
 
 <body>
-    <p></p>
+  
     <div class="calc">
         <output type="text" id="ekran"></output>
 
-
-        <button class="operator" value="+">+</button>
+        <button class="ac" value=" ">AC</button>
+        <button class="operator" value="sqrt">√‎</button>
         <button class="operator" value="/">/</button>
-        <button class="operator" value="*">*</button>
-        <button class="operator" value="-">-</button>
+        <button class="operator" value="*">×</button>
+  
+        
+
+      
+
+
         <button class="number" value="7">7</button>
         <button class="number" value="8">8</button>
         <button class="number" value="9">9</button>
-        <button class="ac" value=" ">AC</button>
+        <button class="operator" value="-">-</button>
+     
         <button class="number" value="4">4</button>
         <button class="number" value="5">5</button>
         <button class="number" value="6">6</button>
+        <button class="operator" value="+">+</button>
         <button class="number" value="1">1</button>
         <button class="number" value="2">2</button>
         <button class="number" value="3">3</button>
@@ -149,65 +165,144 @@
     </div>
 
 
+    <p></p>
+    <ul class="ul">
+
+    </ul>
+</div>
 
     <script>
         let text = string = '';
+
+
         let button = document.querySelectorAll('.number');
         let operator = document.querySelectorAll('.operator');
         let total = document.querySelectorAll('.total');
         let output = document.querySelector('output');
         let ac = document.querySelectorAll('.ac');
         let minus = document.querySelectorAll('.minus');
+        let duo = document.querySelector('p');
+        let lis = document.querySelector('.ul');
+        console.log(lis);
+       let li = document.createElement('li');
+       lis;
+      
         let a = string;
         let b = string;
+        let c = string;
         let oper = string;
-        let duo = document.querySelector('p');
-
-
-
+      
+        let l=string;
+        let lq = string;
 
         button.forEach(button => {
             button.addEventListener('click', function () {
+                minus.forEach(minus => {
+                minus.addEventListener('click', function () {
+                    output.innerText = (-output.innerText);
                 a = output.innerText += this.value;
-                let b = output.innerText;
+                b = output.innerText;
             });
+            });
+            a = output.innerText += this.value;
+                b = output.innerText;
+            });
+
+     
+//Оператор
             operator.forEach(operator => {
                 operator.addEventListener('click', function () {
                     oper = this.value;
-                    b += output.innerText;
-                    output.innerText = '';
-                });
-            });
-            minus.forEach(minus => {
-                minus.addEventListener('click', function () {
-                    output.innerText = - +output.innerText
-                });
-            });
-            ac.forEach(ac => {
-                ac.addEventListener('click', function () {
-                    duo.innerText = '';
-                    output.innerText = ''
-                });
-            });
-            total.forEach(total => {
-                total.addEventListener('click', function () {
-                    duo.innerText = (+b + oper + +a + '=');
-                    output.innerText = '';
-                    let str = (+b + oper + a);
-                    let r = math.evaluate(str);
-                    let l = r.toString();
-                    if (l.length > 10) l = l.substring(0, 10);
-                    output.innerText = l;
-                    duo.innerText += l;
+                    console.log(a);
+                   output.innerText='';
+//Корень
+                    if (oper === "sqrt") {
+                         lq = math.sqrt(a) ;
+                         l = lq.toString();   
+                      //Обрезка строки в корне   
+                    if (l.length > 8) {l = l.substring(0, 8);
+                    }       
+                    output.innerText=l;
+                        duo.innerText = '√‎'  +a +'=' +l;
+                        li.innerText = duo.innerText;
+                        b=a;        
                     setTimeout(() => {
                         duo.innerText = '';
                         output.innerText = '';
                         a = '';
                         b = '';
-                    }, 2000);
+                        c = '';
+                        l = '';
+                        lq = '';
+                    }, 2500);
+                    }    
+                    c=a;          
                 });
+               
+                output.innerText = '';
+                b += output.innerText;   
             });
+
+//Сброс
+            ac.forEach(ac => {
+                ac.addEventListener('click', function () {
+                    console.clear;
+                    duo.innerText = '';
+                    output.innerText = '';
+                    a = '';
+                    b = '';
+                    c = '';
+                    l = '';
+                    str = '';
+                    lq = '';
+                });
+            }); 
+
+            //Подсчёт
+            total.forEach(total => {
+                total.addEventListener('click', function () 
+                {
+                    duo.innerText = (+c + oper + +b + '=');
+                    output.innerText = '';
+                    str = (+c +oper +b);
+                    console.log(str);
+                    let r = math.evaluate(str);
+                    l = r.toString();
+                   
+                    output.innerText = l;
+                    duo.innerText += l;
+           
+                        //удаление лишнего
+                    if (l.length > 8)
+                     {l = l.substring(0, 8);
+                    output.innerText = l;
+                    duo.innerText = +l;
+      
+}
+                li.innerText = duo.innerText;
+                   
+                    //Автоудаление значений
+                    setTimeout(() =>    {
+                        duo.innerText = '';
+                        output.innerText = '';
+                        a = '';
+                        b = '';
+                        c = '';
+                        l = '';
+                        str = '';
+                                        }, 2000);
+
+                 });
+       
         });
+        
+        });
+        lis.appendChild(li);
+        
+
+                   
+
+        
     </script>
 
 </body>
