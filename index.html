@@ -17,18 +17,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/mathjs/lib/browser/math.js"></script>
-    <link rel="shortcut icon" href="https://github.com/MAA-87/calc/blob/main/iconfinder_calculator-math-tool-school_2824440.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/iconfinder_calculator-math-tool-school_2824440.ico" type="image/x-icon">
 
 
 </head>
 <style>
         @font-face {
         font-family: k1; 
-        src: url("https://github.com/MAA-87/calc/blob/main/AnDis.ttf"); 
+        src: url(/ka1.ttf); 
+        font-size: 20pt;
        }
        @font-face {
         font-family: d7; 
-        src: url("https://github.com/MAA-87/calc/blob/main/d7.ttf");
+        src: url(/d7.ttf);
+        font-size: 20pt;
        }
    
     body {
@@ -44,7 +46,7 @@ max-width: 700px;
 
     .calc {
         display: grid;
-        grid-template-columns: repeat(4, minmax(1em, 1fr));
+        grid-template-columns: minmax((repeat(4, minmax(1em, 1fr)),));
         grid-template-rows: 100px repeat(5, minmax(5em, 1fr));
         border: none;
         background: rgb(94, 94, 94);
@@ -57,7 +59,7 @@ max-width: 700px;
         grid-column-start: 1;
         grid-column-end: 5;
         display: flex;
-        padding: 0;
+        padding: 20px;
         background: linear-gradient(90deg, rgb(170, 170, 170) 0%, rgba(176, 201, 193, 0.8) 70%, rgba(84, 163, 59, 0.9) 600%);
         justify-content: flex-end;
         align-items: center;
@@ -287,7 +289,7 @@ max-width: 700px;
                         c = '';
                         l = '';
                         str = '';
-                                        }, 2000);
+                                        }, 5000);
 
                  });
        
